@@ -1,0 +1,26 @@
+{
+  "name": "accessibility-audit-tool",
+  "version": "1.0.0",
+  "description": "Herramienta de auditoría de accesibilidad que utiliza pa11y para analizar múltiples rutas y generar reportes HTML.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "open-report": "node utils/openReport.js"
+  },
+  "keywords": [
+    "accessibility",
+    "audit",
+    "pa11y",
+    "wcag",
+    "html-report"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.1",
+    "pa11y": "^6.2.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
