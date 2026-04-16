@@ -48,11 +48,12 @@ npm run open-report
 The tool is highly customizable via the `config.yml` file. Here are the available options:
 
 ### General Settings (`settings`)
+- `name`: The name of the configuration. This determines the subdirectory where reports are saved (default: `default`).
 - `baseUrl`: The root URL of the site you want to audit.
 - `standard`: The accessibility standard to follow (e.g., `WCAG2AA`).
 - `includeNotices`: Set to `true` to include notices in the report.
 - `includeWarnings`: Set to `true` to include warnings along with errors.
-- `reportDir`: The directory name where HTML reports will be saved.
+- `reportDir`: (Optional) Override the final directory where HTML reports will be saved (overrides `reports/<name>`).
 - `timeout`: Maximum time (in milliseconds) allowed for each page analysis.
 - `runners`: The analysis engines to use (e.g., `htmlcs`, `axe`).
 - `waitUntil`: The browser state to wait for before started the audit (e.g., `networkidle2`).
@@ -74,9 +75,10 @@ paths:
 ## Environment Variables
 
 You can also override some configurations using environment variables:
+- `AUDIT_NAME` (Determines the subdirectory in `reports/`)
 - `AUDIT_BASE_URL`
 - `AUDIT_STANDARD`
-- `AUDIT_REPORT_DIR`
+- `AUDIT_REPORT_DIR` (Overrides the entire path)
 - `AUDIT_TIMEOUT`
 - `AUDIT_HEADLESS` (Set to `true` or `false`)
 - `DRUPAL_COOKIE_NAME`

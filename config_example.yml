@@ -2,11 +2,11 @@
 
 # General settings
 settings:
+  name: 'my-audit'
   baseUrl: 'http://192.168.1.44:8085'
   standard: 'WCAG2AA'
   includeNotices: true
   includeWarnings: true
-  reportDir: 'reports-warnings'
   timeout: 90000
   runners:
     - htmlcs

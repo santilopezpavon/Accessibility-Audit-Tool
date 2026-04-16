@@ -14,7 +14,7 @@ function openReport() {
             return;
         }
 
-        const reportPath = path.join(process.cwd(), config.reportDir, 'index.html');
+        const reportPath = path.join(process.cwd(), 'reports', 'index.html');
 
         // Determine the command based on the operating system
         let command;
