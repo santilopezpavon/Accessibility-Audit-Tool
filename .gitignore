@@ -1,4 +1,6 @@
 reports-warnings
 node_modules
-config.yml
 reports
+projects/*.yml
+!projects/example.yml
+config.yml

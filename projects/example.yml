@@ -1,0 +1,18 @@
+# Example Project Configuration
+# Copy this file to a new one (e.g., projects/my-site.yml) and customize it.
+
+name: 'example'
+baseUrl: 'https://example.com'
+standard: 'WCAG2AA'
+includeNotices: true
+includeWarnings: true
+
+# Authentication (Optional)
+auth:
+  cookieName: 'PHPSESSID'
+  cookieValue: 'your-session-cookie-here'
+
+# Paths to analyze
+paths:
+  - ['/']
+  - ['/about', 'About Us']

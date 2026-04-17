@@ -51,12 +51,11 @@ function renderPageCard(entry, index) {
  * @returns {string}
  */
 function renderIndexPage({ baseUrl, standard, generatedAt, entries }) {
-    const totalIssues  = entries.reduce((s, e) => s + e.issueCount, 0);
-    const totalErrors  = entries.reduce((s, e) => s + e.errors, 0);
-    const totalWarnings= entries.reduce((s, e) => s + e.warnings, 0);
+    const totalIssues = entries.reduce((s, e) => s + e.issueCount, 0);
+    const totalErrors = entries.reduce((s, e) => s + e.errors, 0);
+    const totalWarnings = entries.reduce((s, e) => s + e.warnings, 0);
     const totalNotices = entries.reduce((s, e) => s + e.notices, 0);
     const pagesWithErrors = entries.filter(e => e.errors > 0).length;
-
     const rows = entries.map((entry, i) => renderPageCard(entry, i)).join('');
 
     return `<!DOCTYPE html>

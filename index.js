@@ -32,8 +32,18 @@ const MetaIndexReporter = require('./reporters/MetaIndexReporter');
 const fs = require('fs');
 
 async function main() {
+    // 0. Parse command line arguments
+    const projectName = process.argv[2];
+
+    if (!projectName) {
+        console.error('\nError: Debes especificar un nombre de proyecto.');
+        console.error('Uso: node index.js <nombre-del-proyecto>');
+        console.error('Ejemplo: node index.js another\n');
+        process.exit(1);
+    }
+
     // 1. Build configuration
-    const config = buildConfig();
+    const config = buildConfig(projectName);
 
     // 2. Create analysis paths (Factory Method)
     const analysisPaths = AnalysisPath.fromEntries(config.paths, config.baseUrl);

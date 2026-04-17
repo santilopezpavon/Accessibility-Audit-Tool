@@ -4,8 +4,8 @@
   "description": "Herramienta de auditoría de accesibilidad que utiliza pa11y para analizar múltiples rutas y generar reportes HTML.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "open-report": "node utils/openReport.js"
+    "analyse": "node index.js",
+    "report": "node utils/openReport.js"
   },
   "keywords": [
     "accessibility",

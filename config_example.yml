@@ -1,32 +1,14 @@
-# Configuration
+# General Accessibility Audit Configuration
 
-# General settings
-settings:
-  name: 'my-audit'
-  baseUrl: 'http://192.168.1.44:8085'
-  standard: 'WCAG2AA'
-  includeNotices: true
-  includeWarnings: true
-  timeout: 90000
-  runners:
-    - htmlcs
-    - axe
-  waitUntil: 'networkidle2'
-  chromeLaunchConfig:
-    headless: false
-    args:
-      - '--no-sandbox'
-      - '--disable-setuid-sandbox'
-      - '--lang=ca-ES'
-    slowMo: 50
-
-# Auth (Cookies)
-auth:
-  cookieName: 'SSESSb153a'
-  cookieValue: 'sHO5ZJv4OxI'
-
-# Path to analize
-# Each entry can be [path] or [path, alias]
-paths:
-  - ['/']
-  - ['/listado']
+timeout: 90000
+runners:
+  - htmlcs
+  - axe
+waitUntil: 'networkidle2'
+chromeLaunchConfig:
+  headless: false
+  args:
+    - '--no-sandbox'
+    - '--disable-setuid-sandbox'
+    - '--lang=ca-ES'
+  slowMo: 50
