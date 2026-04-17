@@ -25,8 +25,8 @@ A powerful accessibility auditing tool based on **Pa11y** that analyzes multiple
 
 ## Usage
 
-1. **General Configuration**: Copy `config_example.yml` to `config.yml` and edit it for global settings (timeout, runners, chrome settings).
-2. **Project Configuration**: Copy `projects/example.yml` to a new project file (e.g., `projects/another.yml`) and customize it (baseUrl, standards, paths, auth).
+1. **General Configuration**: Copy `config/config_example.yml` to `config/config.yml` and edit it for global settings (timeout, runners, chrome settings).
+2. **Project Configuration**: Copy `config/projects/example.yml` to a new project file (e.g., `config/projects/another.yml`) and customize it (baseUrl, standards, paths, auth).
 
 The project provides two main commands in `package.json`:
 
@@ -47,13 +47,13 @@ npm run report
 
 ## Configuration
 
-### General configuration (`config.yml`)
+### General configuration (`config/config.yml`)
 - `timeout`: Maximum time (in milliseconds) allowed for each page analysis.
 - `runners`: The analysis engines to use (e.g., `htmlcs`, `axe`).
 - `waitUntil`: The browser state to wait for before started the audit (e.g., `networkidle2`).
 - `chromeLaunchConfig`: Advanced Puppeteer configuration for launching Chrome (headless mode, viewport, etc.).
 
-### Project configuration (`projects/*.yml`)
+### Project configuration (`config/projects/*.yml`)
 - `name`: The name of the configuration. This determines the subdirectory where reports are saved.
 - `baseUrl`: The root URL of the site you want to audit.
 - `standard`: The accessibility standard to follow (e.g., `WCAG2AA`).

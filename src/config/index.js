@@ -39,12 +39,12 @@ function buildConfig(projectName, overrides) {
     const rootPath = process.cwd();
 
     // 1. Load General Config
-    const generalConfig = loadYaml(path.join(rootPath, 'config.yml'));
+    const generalConfig = loadYaml(path.join(rootPath, 'config', 'config.yml'));
 
     // 2. Load Project Config
     let projectConfig = {};
     if (projectName) {
-        projectConfig = loadYaml(path.join(rootPath, 'projects', `${projectName}.yml`));
+        projectConfig = loadYaml(path.join(rootPath, 'config', 'projects', `${projectName}.yml`));
     }
 
     // 3. Merge configurations (shallow merge for top-level, special handling for nested)
