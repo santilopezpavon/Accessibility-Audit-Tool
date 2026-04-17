@@ -25,47 +25,43 @@ A powerful accessibility auditing tool based on **Pa11y** that analyzes multiple
 
 ## Usage
 
-Copy and rename the config_example.yml file to config.yml
+1. **General Configuration**: Copy `config_example.yml` to `config.yml` and edit it for global settings (timeout, runners, chrome settings).
+2. **Project Configuration**: Copy `projects/example.yml` to a new project file (e.g., `projects/another.yml`) and customize it (baseUrl, standards, paths, auth).
 
 The project provides two main commands in `package.json`:
 
 ### 1. Run the Audit
-Executes the accessibility analysis on all paths defined in the configuration.
+Executes the accessibility analysis for a specific project.
 ```bash
-npm start
+npm run analyse <nombre-del-proyecto>
 ```
+*Example:* `npm run analyse another`
 
 ### 2. Open the Report
-Automatically opens the generated HTML index in your default browser. This command dynamically reads the output directory from your configuration.
+Automatically opens the generated HTML index in your default browser.
 ```bash
-npm run open-report
+npm run report
 ```
 
 ---
 
-## Configuration (`config.yml`)
+## Configuration
 
-The tool is highly customizable via the `config.yml` file. Here are the available options:
-
-### General Settings (`settings`)
-- `name`: The name of the configuration. This determines the subdirectory where reports are saved (default: `default`).
-- `baseUrl`: The root URL of the site you want to audit.
-- `standard`: The accessibility standard to follow (e.g., `WCAG2AA`).
-- `includeNotices`: Set to `true` to include notices in the report.
-- `includeWarnings`: Set to `true` to include warnings along with errors.
-- `reportDir`: (Optional) Override the final directory where HTML reports will be saved (overrides `reports/<name>`).
+### General configuration (`config.yml`)
 - `timeout`: Maximum time (in milliseconds) allowed for each page analysis.
 - `runners`: The analysis engines to use (e.g., `htmlcs`, `axe`).
 - `waitUntil`: The browser state to wait for before started the audit (e.g., `networkidle2`).
 - `chromeLaunchConfig`: Advanced Puppeteer configuration for launching Chrome (headless mode, viewport, etc.).
 
-### Authentication (`auth`)
-If the site requires a login, you can provide session cookies:
-- `cookieName`: The name of the session cookie (e.g., Drupal session cookie).
-- `cookieValue`: The value of the active session cookie.
+### Project configuration (`projects/*.yml`)
+- `name`: The name of the configuration. This determines the subdirectory where reports are saved.
+- `baseUrl`: The root URL of the site you want to audit.
+- `standard`: The accessibility standard to follow (e.g., `WCAG2AA`).
+- `includeNotices`: Set to `true` to include notices in the report.
+- `includeWarnings`: Set to `true` to include warnings along with errors.
+- `auth`: If the site requires a login, you can provide session cookies (`cookieName`, `cookieValue`).
+- `paths`: A list of routes to audit. You can specify a simple path or a path with an alias:
 
-### Paths to Analyze (`paths`)
-A list of routes to audit. You can specify a simple path or a path with an alias:
 ```yaml
 paths:
   - ['/']                  # Audits the homepage
